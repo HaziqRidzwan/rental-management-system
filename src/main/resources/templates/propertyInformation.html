@@ -6,8 +6,10 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Rental Management System</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+
+	<link rel="stylesheet" type="text/css" href="rms.css" media="screen"/>
 </head>
 
 <!--Bootsrap to style our table-->
@@ -52,11 +54,11 @@
 
 		<!--Start of Property Table-->
 		<table class="table table-striped table-bordered">
-			<thead class="table-dark">
+			<thead class="table-dark" style="align-content: center;">
 				<tr>
-				<th>Property Name</th>
+					<th>Property Name</th>
 					<th>Property Type</th>
-					<th>Address</th>
+					<th style="width:30%">Address</th>
 					<th>Monthly Mortgage</th>
 					<th>Payment Date</th>
 					<th>Property Bank Name</th>
@@ -67,7 +69,7 @@
 					<th>Created Date</th>
 					<th>Edited By</th>
 					<th>Edited Date</th>-->
-					<th> Actions </th>
+					<th style="width:20%"> Actions </th>
 				</tr>
 			</thead>
 
@@ -81,7 +83,7 @@
 					<td th:text="${pi.paymentDayOfMonth}"></td>
 					<td th:text="${pi.propertyBankName}"></td>
 					<td th:text="${pi.propertyBankAccountNo}"></td>
-					
+
 					<td th:text="${pi.mortgageOfficer}"></td>
 					<td th:text="${pi.mrttTenureYear}"></td>
 					<!--<td th:text="${pi.createdBy}"></td>
@@ -89,10 +91,10 @@
 					<td th:text="${pi.editedBy}"></td>
 					<td th:text="${pi.editedDate}"></td>-->
 					<td>
-						<a th:href="@{/propertyInformation/edit/{id}(id=${pi.id})}" class="btn btn-primary">Update</a>
+						<a th:href="@{/propertyInformation/edit/{id}(id=${pi.id})}" class="button">Update</a>
 						<!--id ni datang dari propertyInformation object-->
 
-						<a th:href="@{/propertyInformation/{id}(id=${pi.id})}" class="btn btn-danger">Delete</a>
+						<a th:href="@{/propertyInformation/{id}(id=${pi.id})}" class="button-danger">Delete</a>
 
 					</td>
 				</tr>
