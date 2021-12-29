@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!--https://getbootstrap.com/docs/4.0/getting-started/introduction/-->
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Rental Management System</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<!--Bootsrap to style our table-->
+<!--https://getbootstrap.com/docs/4.0/content/tables/-->
+
+<body>
+
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+
+		<!-- Brand -->
+		<a class="navbar-brand" href="#">Rental Management System</a>
+
+		<!-- Toggler/collapsibe Button -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!-- Navbar links -->
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" th:href="@{/propertyInformation}">Property Information</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- for class, we are using bootstrap css class-->
+	<div class="container">
+		<div class="row">
+			<h1> List of Property </h1>
+		</div>
+
+		<!-- Start of Add Property Button -->
+		<div class="row">
+			<div class="col-lg-3">
+				<!--syntax to provide link for thymeleaf attribute-->
+				<a th:href="@{/propertyInformation/new}" class="btn btn-primary btn-sm mb-3">Add Property</a>
+			</div>
+		</div>
+		<!-- End of Add Property Button -->
+
+		<!--Start of Property Table-->
+		<table class="table table-striped table-bordered">
+			<thead class="table-dark">
+				<tr>
+				<th>Property Name</th>
+					<th>Property Type</th>
+					<th>Address</th>
+					<th>Monthly Mortgage</th>
+					<th>Payment Date</th>
+					<th>Property Bank Name</th>
+					<th>Property Bank Account No</th>
+					<th>Mortgage Officer</th>
+					<th>MRTT Tenure Year</th>
+					<!--<th>Created By</th>
+					<th>Created Date</th>
+					<th>Edited By</th>
+					<th>Edited Date</th>-->
+					<th> Actions </th>
+				</tr>
+			</thead>
+
+			<body>
+				<!--display table row dinamically-->
+				<tr th:each="pi: ${propertyInformation}">
+					<td th:text="${pi.propertyName}"></td>
+					<td th:text="${pi.propertyType}"></td>
+					<td th:text="${pi.address}"></td>
+					<td th:text="${pi.monthlyMortgage}"></td>
+					<td th:text="${pi.paymentDayOfMonth}"></td>
+					<td th:text="${pi.propertyBankName}"></td>
+					<td th:text="${pi.propertyBankAccountNo}"></td>
+					
+					<td th:text="${pi.mortgageOfficer}"></td>
+					<td th:text="${pi.mrttTenureYear}"></td>
+					<!--<td th:text="${pi.createdBy}"></td>
+					<td th:text="${pi.createdDate}"></td>
+					<td th:text="${pi.editedBy}"></td>
+					<td th:text="${pi.editedDate}"></td>-->
+					<td>
+						<a th:href="@{/propertyInformation/edit/{id}(id=${pi.id})}" class="btn btn-primary">Update</a>
+						<!--id ni datang dari propertyInformation object-->
+
+						<a th:href="@{/propertyInformation/{id}(id=${pi.id})}" class="btn btn-danger">Delete</a>
+
+					</td>
+				</tr>
+			</body>
+		</table>
+		<!--End of Property Table-->
+
+	</div>
+
+</body>
+
+</html>
