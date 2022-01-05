@@ -14,7 +14,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 @Entity
 @Table(name = "PROPERTY_INFORMATION")
-public class PropertyInformation {
+public class PropertyInformation { // Table dari DB mapped dengan class object
 
 	public static final String COLUMN_PREFIX = "PI_";
 // sdfsdf
@@ -23,10 +23,10 @@ public class PropertyInformation {
 
 	private Long id;
 
-	@Column(name = COLUMN_PREFIX + "PROPERTY_NAME", length = 200)
+	@Column(name = COLUMN_PREFIX + "PROPERTY_NAME", length = 200) // ORM - Object relational mapping
 	private String propertyName;
 
-	@Column(name = COLUMN_PREFIX + "PROPERTY_TYPE", length = 200)
+	@Column(name = COLUMN_PREFIX + "PROPERTY_TYPE", length = 200) // column dari table mapped dengan field
 	private String propertyType;
 
 	@Column(name = COLUMN_PREFIX + "ADDRESS", length = 300)

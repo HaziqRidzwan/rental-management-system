@@ -11,7 +11,7 @@ import com.newhut.rms.service.PropertyInformationService;
 
 @Service
 public class PropertyInformationServiceImpl implements PropertyInformationService {
-	
+
 	@Autowired
 	private PropertyInformationRepository propertyInformationRepository;
 
@@ -23,7 +23,7 @@ public class PropertyInformationServiceImpl implements PropertyInformationServic
 	@Override
 	public PropertyInformation savePropertyInformation(PropertyInformation propertyInformation) {
 		return propertyInformationRepository.save(propertyInformation);
-		
+
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public class PropertyInformationServiceImpl implements PropertyInformationServic
 
 	@Override
 	public void deletePropertyInformationById(Long id) {
-		propertyInformationRepository.deleteById(id);	
+		propertyInformationRepository.deleteById(id);
 	}
 
 }
